@@ -35,7 +35,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: '#000000'}}>
+    <AppBar position="relative" sx={{ backgroundColor: '#000000'}}>
         <Toolbar >
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography

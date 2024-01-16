@@ -1,12 +1,17 @@
 import React from 'react';
 import Navbar from './Components/Navbar';
-import ListGroup from './Components/ListGroup';
-import DataTable from './Components/Alert';
+import DataTable from './Components/DataTable';
 const App = () => {
   return (
       <>
-        <Navbar />
+      <div className='nav'><Navbar/></div>
+        
+        <DataTable className = "data"/>
         <DataTable/>
+        <DataTable/>
+        <DataTable/>
+        <DataTable/>
+
       </>
     );
 }
