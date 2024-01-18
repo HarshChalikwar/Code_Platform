@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../App';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
@@ -35,19 +36,18 @@ const rows = [
 ];
 
 export default function DataTable() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div style={{ height: 400, width: '100%' }} >
+    <div style={{ height: 400, width: '100%', margin: 0, padding: 0 }} className={`data ${theme}`}>
       <DataGrid
         rows={rows}
         columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
+        pageSize={5}
         checkboxSelection
       />
     </div>
   );
+  
+    
 }

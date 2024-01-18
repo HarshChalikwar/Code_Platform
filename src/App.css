@@ -2,3 +2,19 @@
   padding-top: 10000px;
   margin-top: 1000px;
 }
+
+#light .nav{
+  background-color: #345680
+}
+
+#dark .nav{
+  background-color: #664947
+}
+
+#light .data{
+  background-color: #bfbaba
+}
+
+#dark .data{
+  background-color: #361e1c
+}
