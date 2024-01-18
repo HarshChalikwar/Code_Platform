@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 import Navbar from './Components/Navbar.js';
-import DataTable from './Components/DataTable.js'; 
+
 import './App.css';
 
 
@@ -18,11 +18,7 @@ const App = () => {
       <div className='App' id={theme}>
         <Navbar />
         
-        <DataTable />
-        <DataTable />
-        <DataTable />
-        <DataTable />
-        <DataTable />
+      
       </div>
     </ThemeContext.Provider>
   );

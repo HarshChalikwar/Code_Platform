@@ -43,7 +43,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="relative" sx={{ backgroundColor: theme === 'light' ? '#345680' : '#664947' }}>
+    <AppBar position="relative" sx={{ backgroundColor: theme === 'light' ? '#0A66C2' : '#010409' }}>
       <Toolbar>
         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
         <Typography
@@ -130,7 +130,7 @@ function Navbar() {
             </Button>
           ))}
         </Box>
-        <Button variant="outlined" onClick={handleToggleTheme} sx={{ marginRight: '15px' }}>
+        <Button variant="outlined" onClick={handleToggleTheme} sx={{ marginRight: '15px' ,color: "white" }}>
           {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
         </Button>
         <Box sx={{ flexGrow: 0 }}>
