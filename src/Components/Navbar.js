@@ -130,7 +130,7 @@ function Navbar() {
             </Button>
           ))}
         </Box>
-        <Button variant="outlined" onClick={handleToggleTheme}>
+        <Button variant="outlined" onClick={handleToggleTheme} sx={{ marginRight: '15px' }}>
           {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
         </Button>
         <Box sx={{ flexGrow: 0 }}>
