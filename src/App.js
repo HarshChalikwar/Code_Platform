@@ -1,5 +1,8 @@
 import React, { createContext, useState } from 'react';
 import Navbar from './Components/Navbar.js';
+import { useEffect } from "react";
+import {auth,provider} from "./config";
+import {signInWithPopup} from "firebase/auth";
 
 import './App.css';
 
@@ -7,6 +10,20 @@ import './App.css';
 export const ThemeContext = createContext(null);
 
 const App = () => {
+
+  const [value,setValue] = useState('')
+    const handleClick =()=>{
+        signInWithPopup(auth,provider).then((data)=>{
+            setValue(data.user.email)
+            localStorage.setItem("email",data.user.email)
+            setValue(data.user.displayName)
+            localStorage.setItem("name",data.user.displayName)
+        })
+    }
+
+    useEffect(()=>{
+        setValue(localStorage.getItem('email'))
+    })
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {
@@ -14,13 +31,17 @@ const App = () => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <div>
+      {value?<ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className='App' id={theme}>
         <Navbar />
         
       
       </div>
-    </ThemeContext.Provider>
+    </ThemeContext.Provider>:
+        <button onClick={handleClick}>Signin With Google</button>
+        }
+    </div>
   );
 };
 

@@ -19,6 +19,11 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function Navbar() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
+  const logout =()=>{
+    localStorage.clear()
+    window.location.reload()
+}
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -41,6 +46,14 @@ function Navbar() {
   const handleToggleTheme = () => {
     toggleTheme();  // Toggle the theme when the button is clicked
   };
+
+  function handleClick(setting) {
+    if (setting === 'Logout') {
+      logout();
+    } else {
+      handleCloseUserMenu();
+    }
+  }
 
   return (
     <AppBar position="relative" sx={{ backgroundColor: theme === 'light' ? '#0A66C2' : '#010409' }}>
@@ -156,7 +169,7 @@ function Navbar() {
             onClose={handleCloseUserMenu}
           >
             {settings.map((setting) => (
-              <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              <MenuItem key={setting} onClick={() => handleClick(setting)}>
                 <Typography textAlign="center">{setting}</Typography>
               </MenuItem>
             ))}
